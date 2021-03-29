@@ -1,6 +1,8 @@
 package me.diniamo.pixelartcreator.controller
 
 import com.beust.klaxon.JsonObject
+import javafx.beans.property.BooleanProperty
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.Label
 import javafx.scene.paint.Paint
@@ -24,6 +26,8 @@ class MainController : Controller() {
 
     private var selectedFile: File? = null
     lateinit var selectedFileLabel: Label
+
+    val prettyPrintProperty = SimpleBooleanProperty()
 
     private val green = Paint.valueOf("#00ff00")
 
@@ -62,7 +66,7 @@ class MainController : Controller() {
             }
 
             val base = getBase(blocks)
-            base.toJsonString(prettyPrint = true).also {
+            base.toJsonString(prettyPrint = prettyPrintProperty.value).also {
                 exportToClipBoard(it)
             }
         } ui { _ ->

@@ -9,8 +9,8 @@ import tornadofx.*
 class MainView : View("Pixel Art Generator") {
     private val controller: MainController by inject()
 
-    override val root = vbox {
-        alignment = Pos.TOP_CENTER
+    override val root = vbox(alignment = Pos.TOP_CENTER) {
+        stylesheets.add("dark-mode.css")
 
         label("Pixel Art Generator") {
             style {
@@ -24,7 +24,7 @@ class MainView : View("Pixel Art Generator") {
             }
         }
 
-        vbox {
+        vbox(alignment = Pos.CENTER) {
             hbox(alignment = Pos.CENTER) {
                 label("Width: ")
                 textfield(controller.widthProperty)
@@ -49,14 +49,14 @@ class MainView : View("Pixel Art Generator") {
                     translateX = 10.0
                 }
             }
-            hbox(alignment = Pos.CENTER) {
-
+            checkbox(text = "Pretty Print", property = controller.prettyPrintProperty) {
+                alignment = Pos.CENTER
             }
         }
 
         button("Generate") {
             vboxConstraints {
-                marginTop = 10.0
+                marginTop = 25.0
             }
 
             action {
