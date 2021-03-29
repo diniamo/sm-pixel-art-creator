@@ -4,6 +4,7 @@ import com.beust.klaxon.JsonObject
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.Label
 import javafx.scene.paint.Paint
+import javafx.stage.FileChooser
 import javafx.util.Duration
 import me.diniamo.pixelartcreator.*
 import me.diniamo.pixelartcreator.view.MainView
@@ -27,7 +28,12 @@ class MainController : Controller() {
     private val green = Paint.valueOf("#00ff00")
 
     fun chooseFile() {
-        val files = tornadofx.chooseFile(title = "Choose an image to convert", filters = emptyArray())
+        val files = tornadofx.chooseFile(title = "Choose an image to convert", filters = arrayOf(
+            FileChooser.ExtensionFilter("Compressed JPEG images", "jpg", "jpeg"),
+            FileChooser.ExtensionFilter("Slightly compressed images with transparent background", "png"),
+            FileChooser.ExtensionFilter("Uncompressed, raw images", "bmp"),
+            FileChooser.ExtensionFilter("Non-animated compressed images with transparent background", "gif"),
+        ))
         if(files.isNotEmpty()) {
             val file = files.first()
 
