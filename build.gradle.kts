@@ -26,8 +26,6 @@ dependencies {
         exclude("org.jetbrains.kotlin")
     }
     implementation("com.beust", "klaxon", "5.5")
-    implementation("net.harawata", "appdirs", "1.2.1")
-
 
     org.openjfx.gradle.JavaFXPlatform.values().forEach { platform ->
         val cfg = configurations.create("javafx_" + platform.classifier)
