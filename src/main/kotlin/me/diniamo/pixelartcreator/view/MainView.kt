@@ -9,8 +9,6 @@ import tornadofx.*
 class MainView : View("Pixel Art Generator") {
     private val controller: MainController by inject()
 
-    private val usageFragment = find<UsageFragment>()
-
     override val root = vbox {
         alignment = Pos.TOP_CENTER
 
@@ -20,7 +18,11 @@ class MainView : View("Pixel Art Generator") {
                 fontSize = 50.px
             }
         }
-        label("This is a small concept that allows you to create a blueprint file for an image.")
+        label("This is a small concept that allows you to create a blueprint file for an image.") {
+            vboxConstraints {
+                marginBottom = 20.0
+            }
+        }
 
         vbox {
             hbox(alignment = Pos.CENTER) {
@@ -46,6 +48,9 @@ class MainView : View("Pixel Art Generator") {
                 controller.selectedFileLabel = label("No file chosen") {
                     translateX = 10.0
                 }
+            }
+            hbox(alignment = Pos.CENTER) {
+
             }
         }
 
