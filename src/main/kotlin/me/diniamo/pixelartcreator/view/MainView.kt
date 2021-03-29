@@ -21,16 +21,6 @@ class MainView : View("Pixel Art Generator") {
             }
         }
         label("This is a small concept that allows you to create a blueprint file for an image.")
-        button("How to use") {
-            vboxConstraints {
-                marginTop = 20.0
-                marginBottom = 20.0
-            }
-
-            action {
-                usageFragment.openModal()
-            }
-        }
 
         vbox {
             hbox(alignment = Pos.CENTER) {
