@@ -32,12 +32,7 @@ class MainController : Controller() {
     private val green = Paint.valueOf("#00ff00")
 
     fun chooseFile() {
-        val files = tornadofx.chooseFile(title = "Choose an image to convert", filters = arrayOf(
-            FileChooser.ExtensionFilter("Compressed JPEG images", "jpg", "jpeg"),
-            FileChooser.ExtensionFilter("Slightly compressed images with transparent background", "png"),
-            FileChooser.ExtensionFilter("Uncompressed, raw images", "bmp"),
-            FileChooser.ExtensionFilter("Non-animated compressed images with transparent background", "gif"),
-        ))
+        val files = tornadofx.chooseFile(title = "Choose an image to convert", filters = emptyArray())
         if(files.isNotEmpty()) {
             val file = files.first()
 
@@ -66,13 +61,10 @@ class MainController : Controller() {
             }
 
             val base = getBase(blocks)
-            base.toJsonString(prettyPrint = prettyPrintProperty.value).also {
-                exportToClipBoard(it)
-            }
-        } ui { _ ->
-//            tornadofx.find<ResultFragment>(params = mapOf("text" to result)).openWindow(stageStyle = StageStyle.UTILITY, modality = Modality.NONE, owner = null)
+            saveBlueprint(base.toJsonString(prettyPrint = prettyPrintProperty.value))
+        } ui { name ->
             with(mainView.root) {
-                text("JSON successfully copied to clipboard.") {
+                text("Blueprint saved as $name") {
                     fill = green
 
                     runLater(Duration.seconds(3.0)) {
