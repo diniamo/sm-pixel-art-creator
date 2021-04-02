@@ -3,13 +3,17 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("application")
     id("org.openjfx.javafxplugin") version "0.0.8"
-    id("org.beryx.runtime") version "1.8.4"
+    id("org.beryx.runtime") version "1.12.2"
 
     kotlin("jvm") version "1.4.31"
 }
 
 group = "me.diniamo"
 version = "1.0-SNAPSHOT"
+
+application {
+    mainClass.set("me.diniamo.pixelartcreator.MyAppKt")
+}
 
 javafx {
     version = "11.0.2"
@@ -22,10 +26,13 @@ repositories {
 
 val javaFXOptions = the<org.openjfx.gradle.JavaFXOptions>()
 dependencies {
+    implementation("com.beust", "klaxon", "5.5")
+    implementation("'net.java.dev.jna", "jna", "5.8.0")
+    implementation("net.java.dev.jna", "jna-platform", "5.8.0")
+
     implementation("no.tornado", "tornadofx", "1.7.20") {
         exclude("org.jetbrains.kotlin")
     }
-    implementation("com.beust", "klaxon", "5.5")
 
     org.openjfx.gradle.JavaFXPlatform.values().forEach { platform ->
         val cfg = configurations.create("javafx_" + platform.classifier)

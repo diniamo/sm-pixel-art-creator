@@ -1,13 +1,41 @@
 package me.diniamo.pixelartcreator
 
 import com.beust.klaxon.JsonObject
-import javafx.scene.input.Clipboard
-import javafx.scene.input.DataFormat
 import java.awt.Toolkit
-import java.awt.datatransfer.ClipboardOwner
 import java.awt.datatransfer.StringSelection
 import java.awt.image.BufferedImage
-import java.text.DateFormat
+import java.io.File
+import java.util.*
+
+fun saveBlueprint(json: String): UUID {
+    val uuid = UUID.randomUUID()
+    val blueprintFolder = getNewBlueprintFolder(uuid)
+    println(blueprintFolder.path)
+    val blueprintJson = File(blueprintFolder.path + "\\blueprint.json").also { it.createNewFile() }
+    val descriptionJson = File(blueprintFolder.path + "\\description.json").also { it.createNewFile() }
+
+    blueprintJson.writeText(json)
+    descriptionJson.writeText(
+        getDescription(uuid.toString()).toJsonString(prettyPrint = true)
+    )
+
+    return uuid
+}
+
+private val APPDATA = System.getenv("APPDATA")
+fun getNewBlueprintFolder(uuid: UUID): File {
+    val smUsers = File("$APPDATA\\Axolot Games\\Scrap Mechanic\\User")
+    val latestModified = smUsers.listFiles()?.filter(File::isDirectory)?.maxByOrNull { it.lastModified() } ?: throw IllegalAccessException("No Scrap Mechanic users found")
+    return File("${latestModified.path}\\Blueprints\\${uuid}").also { it.mkdir() }
+}
+
+fun getDescription(uuid: String) = JsonObject(mapOf(
+    "description" to "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+    "localId" to uuid,
+    "name" to uuid,
+    "type" to "Blueprint",
+    "version" to 0
+))
 
 fun getBlock(x: Int, y: Int, color: String, shapeId: String) = JsonObject(mapOf(
         "bounds" to JsonObject(mapOf(

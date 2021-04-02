@@ -10,7 +10,7 @@ class MyApp : App(MainView::class) {
         super.start(stage)
 
         stage.minWidth = 500.0
-        stage.minHeight = 320.0
+        stage.minHeight = 330.0
     }
 }
 
