@@ -5,12 +5,14 @@ import javafx.scene.text.FontWeight
 import me.diniamo.pixelartcreator.controller.MainController
 import me.diniamo.pixelartcreator.fragment.UsageFragment
 import tornadofx.*
+import java.io.File
 
 class MainView : View("Pixel Art Generator") {
     private val controller: MainController by inject()
 
     override val root = vbox(alignment = Pos.TOP_CENTER) {
         stylesheets.add("dark-mode.css")
+        stylesheets.add("file:///" + File("test.css").absolutePath.replace("\\", "/"))
 
         label("Pixel Art Generator") {
             style {
