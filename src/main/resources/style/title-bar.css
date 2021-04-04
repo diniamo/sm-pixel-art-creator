@@ -1,0 +1,19 @@
+* {
+    -fx-background-color: #FF9100;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: transparent;
+}
+.button:hover {
+    -fx-background-color: rgba(0, 0, 0, .1);
+}
+.button:pressed {
+    -fx-background-color: rgba(0, 0, 0, .15);
+}
