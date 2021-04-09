@@ -1,24 +1,22 @@
 .root {
-    -fx-font-family: Poppins;
-
     -fx-background-size: 900 675;
     -fx-background-radius: 0 0 26 26;
     -fx-border-radius: 0 0 26 26;
 }
 
 @font-face {
-    -fx-font-family: Poppins;
-    -fx-font-weight: bold;
-    src: url('../font/Poppins-Bold.ttf');
+    font-family: 'Poppins';
+    font-weight: bold;
+    src: url('../font/Poppins-Bold.ttf') format('truetype');
 }
 @font-face {
-    -fx-font-family: Poppins;
-    -fx-font-weight: medium;
-    src: url('../font/Poppins-Medium.ttf');
+    font-family: 'Poppins';
+    font-weight: 500;
+    src: url('../font/Poppins-Medium.ttf') format('truetype');
 }
 @font-face {
-    -fx-font-family: Poppins;
-    -fx-font-weight: medium;
-    -fx-font-style: italic;
-    src: url('../font/Poppins-MediumItalic.ttf');
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-style: italic;
+    src: url('../font/Poppins-MediumItalic.ttf') format('truetype');
 }

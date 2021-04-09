@@ -27,8 +27,7 @@ repositories {
 val javaFXOptions = the<org.openjfx.gradle.JavaFXOptions>()
 dependencies {
     implementation("com.beust", "klaxon", "5.5")
-    implementation("'net.java.dev.jna", "jna", "5.8.0")
-    implementation("net.java.dev.jna", "jna-platform", "5.8.0")
+    implementation("de.codecentric.centerdevice", "javafxsvg", "1.3.0")
 
     implementation("no.tornado", "tornadofx", "1.7.20") {
         exclude("org.jetbrains.kotlin")

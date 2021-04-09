@@ -23,7 +23,6 @@ class MyApp : App(NewMainView::class) {
 
         importStylesheet("/style/dark-mode.css")
         importStylesheet("/style/application.css")
-        importStylesheet("file:///" + File("test.css").absolutePath.replace("\\", "/"))
     }
 }
 
