@@ -1,22 +1,22 @@
-.root {
-    -fx-background-size: 900 675;
-    -fx-background-radius: 0 0 26 26;
-    -fx-border-radius: 0 0 26 26;
-}
-
 @font-face {
-    font-family: 'Poppins';
+    font-family: 'Poppins Bold';
     font-weight: bold;
     src: url('../font/Poppins-Bold.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Poppins';
+    font-family: 'Poppins Medium';
     font-weight: 500;
     src: url('../font/Poppins-Medium.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Poppins';
+    font-family: 'Poppins Medium Italic';
     font-weight: 500;
     font-style: italic;
     src: url('../font/Poppins-MediumItalic.ttf') format('truetype');
+}
+
+.root {
+    -fx-background-size: 900 675;
+    -fx-background-radius: 0 0 26 26;
+    -fx-border-radius: 0 0 26 26;
 }

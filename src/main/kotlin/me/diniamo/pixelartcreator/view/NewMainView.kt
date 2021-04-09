@@ -31,7 +31,7 @@ class NewMainView : View("My View") {
                 translateY = 80.0
 
                 imageview(Image(this::class.java.getResourceAsStream("/icons/descLine.svg")))
-                label("This is a small concept that allows you \nto create a blueprint file for an image.") {
+                label("This is a small program that allows you \nto create a blueprint file for an image.") {
                     id = "description"
                     translateX = 15.0
                 }
