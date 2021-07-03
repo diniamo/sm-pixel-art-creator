@@ -1,5 +1,6 @@
 package me.diniamo.pixelartcreator.view
 
+import javafx.geometry.HPos
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.control.ContentDisplay
@@ -54,7 +55,7 @@ class NewMainView : View("My View") {
 
             button("Choose\nFile") {
                 prefHeight = 150.0
-                prefWidth = 130.0
+                prefWidth = 135.0
                 id = "roundedButton"
 
                 graphic = imageview(Image(this::class.java.getResourceAsStream("/icons/image.svg")))
@@ -88,7 +89,7 @@ class NewMainView : View("My View") {
 
             button {
                 prefHeight = 150.0
-                prefWidth = 130.0
+                prefWidth = 135.0
                 id = "roundedButton"
                 gridpaneConstraints {
                     columnRowIndex(0, 1)
@@ -104,6 +105,7 @@ class NewMainView : View("My View") {
             stackpane {
                 gridpaneConstraints {
                     columnRowIndex(1, 0)
+                    hAlignment = HPos.LEFT
                 }
 
                 rectangle {
